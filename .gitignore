@@ -1,0 +1,6 @@
+logs
+temp_data
+*.pyc
+workspace
+test.py
+joern_manager/temp.json

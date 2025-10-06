@@ -1,0 +1,1472 @@
+{
+    "sources": {
+        "php_global_vars": [
+            "$_GET",
+            "$_POST",
+            "$_REQUEST",
+            "$_COOKIE",
+            "$_SERVER",
+            "$_FILES",
+            "$GLOBALS",
+            "$mybb->input",
+            "$this->request->get",
+            "$this->request->post",
+            "$this->request->cookie",
+            "$this->request->files",
+            "$this->request->server"
+        ],
+        "get_nfilter_request_var": "cacti_cacti",
+        "get_request_var": "cacti_cacti",
+        "gpc_get": "mantisbt_mantisbt",
+        "get_input": "mybb_mybb",
+        "required_param": "moodle_moodle",
+        "optional_param": "moodle_moodle",
+        "getParsedBody": "typo3_typo3",
+        "getAttribute": "typo3_typo3",
+        "getServerParams": "typo3_typo3",
+        "getCookieParams": "typo3_typo3",
+        "getQueryParams": "typo3_typo3"
+    },
+    "sinks": {
+        "popen": {
+            "index": 1,
+            "vuln_type": "command injection"
+        },
+        "echo": {
+            "index": 1,
+            "vuln_type": "xss"
+        },
+        "print": {
+            "index": 1,
+            "vuln_type": "xss"
+        },
+        "print_r": {
+            "index": 1,
+            "vuln_type": "xss"
+        },
+        "mysqli_query": {
+            "index": 2,
+            "vuln_type": "sql injection"
+        },
+        "mysql_query": {
+            "index": 1,
+            "vuln_type": "sql injection"
+        },
+        "execute": {
+            "index": 1,
+            "vuln_type": "sql injection"
+        },
+        "query": {
+            "index": 1,
+            "vuln_type": "sql injection"
+        },
+        "system": {
+            "index": 1,
+            "vuln_type": "command injection"
+        },
+        "eval": {
+            "index": 1,
+            "vuln_type": "command injection"
+        },
+        "exec": {
+            "index": 1,
+            "vuln_type": "command injection"
+        },
+        "shell_exec": {
+            "index": 1,
+            "vuln_type": "command injection"
+        },
+        "printf": {
+            "index": 1,
+            "vuln_type": "format string"
+        },
+        "sprintf": {
+            "index": 1,
+            "vuln_type": "format string"
+        },
+        "vprintf": {
+            "index": 1,
+            "vuln_type": "format string"
+        },
+        "vsprintf": {
+            "index": 1,
+            "vuln_type": "format string"
+        },
+        "unlink": {
+            "index": 1,
+            "vuln_type": "path traversal"
+        },
+        "readdir": {
+            "index": 1,
+            "vuln_type": "path traversal"
+        },
+        "file_get_contents": {
+            "index": 1,
+            "vuln_type": "path traversal"
+        }
+    },
+    "transfers": {
+        "toCharArray": {
+            "from": "base",
+            "to": "result",
+            "type": "char[]"
+        },
+        "append": {
+            "from": 1,
+            "to": "base",
+            "type": "java.lang.StringBuffer"
+        },
+        "toString": {
+            "from": "base",
+            "to": "result",
+            "type": "java.lang.String"
+        },
+        "concat": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "addslashes": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "stripslashes": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_push": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "implode": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "explode": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "trim": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "ltrim": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "rtrim": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "substr": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "str_repeat": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "str_pad": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "substr_replace": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "str_replace": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "str_ireplace": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "strtr": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "strtoupper": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "strtolower": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "strrev": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "strval": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "ucwords": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "ucfirst": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "addcslashes": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "htmlspecialchars": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "escapeshellarg": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "clone": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "preg_split": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "preg_replace": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "preg_quote": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "number_format": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "end": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "join": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "mysql_real_escape_string": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "mysqli_real_escape_string": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "reset": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_unique": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_values": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_reverse": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_slice": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_fill_keys": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_map": {
+            "from": 2,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_shift": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_pop": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "array_pad": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "strchr": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "str_split": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "wordwrap": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "mb_substr": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "mb_strtolower": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "mb_strtoupper": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        },
+        "nl2br": {
+            "from": 1,
+            "to": "result",
+            "type": "ANY"
+        }
+    },
+    "sanitizer": {
+        "---1---": "强制类型转换",
+        "intval": 1,
+        "boolval": 1,
+        "floatval": 1,
+        "doubleval": 1,
+        "---2---": "数字操作",
+        "abs": 1,
+        "min": 0,
+        "max": 0,
+        "ord": 1,
+        "pow": 1,
+        "chr": 1,
+        "ceil": 1,
+        "count": 1,
+        "floor": 1,
+        "rand": 0,
+        "range": 1,
+        "round": 1,
+        "sizeof": 1,
+        "mt_rand": 0,
+        "numfmt_format": 2,
+        "numfmt_create": 1,
+        "number_format": 1,
+        "---3---": "字符串操作",
+        "strlen": 1,
+        "strpos": 1,
+        "strrpos": 1,
+        "strrchr": 1,
+        "strtotime": 1,
+        "str_getcsv": 1,
+        "strip_tags": 1,
+        "---4---": "编码与解码",
+        "md5": 0,
+        "crc32": 1,
+        "sha1": 1,
+        "hash": 2,
+        "hash_hmac": 3,
+        "hexdec": 1,
+        "dechex": 1,
+        "bin2hex": 1,
+        "iconv": 0,
+        "pack": 1,
+        "unpack": 2,
+        "urlencode": 1,
+        "urldecode": 1,
+        "utf8_decode": 1,
+        "utf8_encode": 1,
+        "json_encode": 0,
+        "json_decode": 0,
+        "base_convert": 1,
+        "base64_decode": 1,
+        "base64_encode": 1,
+        "rawurlencode": 1,
+        "gzdecode": 1,
+        "gzencode": 1,
+        "gzcompress": 1,
+        "md5_file": 1,
+        "mb_convert_encoding": 1,
+        "mb_strlen": 1,
+        "http_build_query": 0,
+        "html_entity_decode": 1,
+        "---5---": "文件操作",
+        "glob": 1,
+        "file": 1,
+        "fread": 1,
+        "fopen": 1,
+        "fgets": 0,
+        "dirname": 1,
+        "opendir": 1,
+        "readdir": 1,
+        "realpath": 1,
+        "pathinfo": 1,
+        "gzinflate": 1,
+        "filemtime": 1,
+        "fileowner": 1,
+        "filegroup": 1,
+        "filesize": 1,
+        "parse_url": 1,
+        "file_get_contents": 0,
+        "exif_read_data": 1,
+        "sys_get_temp_dir": 0,
+        "stream_get_contents": 1,
+        "simplexml_load_string": 1,
+        "simplexml_load_file": 1,
+        "stream_resolve_include_path": 1,
+        "xml_parser_create": 1,
+        "libxml_get_errors": 0,
+        "get_html_translation_table": 1,
+        "---6---": "条件判断",
+        "empty": 1,
+        "isset": 1,
+        "is_int": 1,
+        "is_bool": 1,
+        "is_float": 1,
+        "is_null": 1,
+        "is_array": 1,
+        "in_array": 0,
+        "is_numeric": 1,
+        "array_key_exists": 2,
+        "---7---": "系统信息",
+        "key": 1,
+        "date": 2,
+        "time": 0,
+        "defined": 1,
+        "mktime": 0,
+        "microtime": 0,
+        "basename": 1,
+        "ini_get": 1,
+        "iptcparse": 1,
+        "gettype": 1,
+        "get_class": 1,
+        "gmdate": 1,
+        "getcwd": 0,
+        "getopt": 2,
+        "getenv": 0,
+        "gmmktime": 1,
+        "getmypid": 0,
+        "gethostbyname": 1,
+        "gethostbyaddr": 1,
+        "get_object_vars": 1,
+        "uniqid": 0,
+        "static": 1,
+        "session_id": 0,
+        "sys_getloadavg": 0,
+        "posix_getppid": 0,
+        "localeconv": 0,
+        "php_uname": 0,
+        "phpversion": 0,
+        "debug_backtrace": 2,
+        "memory_get_usage": 0,
+        "memory_get_peak_usage": 0,
+        "mysql_get_server_info": 0,
+        "escapeshellcmd": 1,
+        "error_reporting": 1,
+        "func_get_args": 0,
+        "ob_get_clean": 0,
+        "ob_get_contents": 0,
+        "date_default_timezone_get": 0,
+        "---8---": "其它操作",
+        "array_keys": 1,
+        "serialize": 1,
+        "var_export": 1,
+        "unserialize": 1,
+        "htmlentities": 1,
+        "inet_ntop": 1,
+        "inet_pton": 1,
+        "ADONewConnection": 1,
+        "NewDataDictionary": 1,
+        "curl_exec": 1,
+        "curl_init": 0,
+        "curl_getinfo": 1
+    },
+    "control_sanitizers": {
+        "is_int": 1,
+        "is_bool": 1,
+        "is_float": 1,
+        "in_array": 1,
+        "is_numeric": 1,
+        "is_callable": 1,
+        "is_resource": 1
+    },
+    "harmless": [
+        "println",
+        "put",
+        "get",
+        "<init>",
+        "encaps",
+        "current",
+        "next",
+        "date"
+    ],
+    "redirect": {
+        "include_once": 1,
+        "require_once": 1,
+        "include": 1,
+        "require": 1
+    },
+    "new": {
+        "list": {
+            "from": null,
+            "to": null,
+            "type": "array",
+            "signature": "<array list(mixed,mixed)>",
+            "cpg_id": 7885,
+            "code": "list($t_id,$t_new_value)"
+        },
+        "parent": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY parent(ANY,ANY,ANY)>",
+            "cpg_id": 98530,
+            "code": "parent::execute($p_bind_array,$p_limit,$p_offset)"
+        },
+        "call_user_func_array": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY call_user_func_array(ANY,ANY)>",
+            "cpg_id": 481384,
+            "code": "call_user_func_array($return_func,$return_array)"
+        },
+        "call_user_func": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY call_user_func(ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 697804,
+            "code": "call_user_func($check)"
+        },
+        "array_merge": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_merge(ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 481344,
+            "code": "array_merge($return_array,$return_params)"
+        },
+        "array_combine": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_combine(ANY,ANY)>",
+            "cpg_id": 225560,
+            "code": "array_combine($t_top_projects,$t_top_projects)"
+        },
+        "array_filter": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_filter(ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 171142,
+            "code": "array_filter(helper_get_columns_to_view()column_is_sortable')'"
+        },
+        "array_column": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_column(ANY,ANY)>",
+            "cpg_id": 228065,
+            "code": "array_column($t_query->fetch_all()user_id')'"
+        },
+        "array_intersect": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_intersect(ANY,ANY)>",
+            "cpg_id": 205632,
+            "code": "array_intersect($p_access_level,$t_private_project_threshold)"
+        },
+        "array_flip": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_flip(ANY)>",
+            "cpg_id": 109804,
+            "code": "array_flip(MantisEnum::getAssocArrayIndexedByValues($p_enum_string))"
+        },
+        "array_chunk": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_chunk(ANY,ANY,ANY)>",
+            "cpg_id": 89274,
+            "code": "array_chunk($t_id_array,2100,true)"
+        },
+        "array_search": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_search(ANY,ANY)>",
+            "cpg_id": 188640,
+            "code": "array_search($t_lang,$t_auto_map)"
+        },
+        "array_splice": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_splice(ANY,ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 238237,
+            "code": "array_splice($e2->final,0,$norig)"
+        },
+        "array_diff": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_diff(ANY,ANY)>",
+            "cpg_id": 158716,
+            "code": "array_diff($p_filter_arr[FILTER_PROPERTY_STATUS],$t_hidden_status_array)"
+        },
+        "preg_replace_callback": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY preg_replace_callback(ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 338151,
+            "code": "preg_replace_callback('~&#([0-9]+);~unichr_callback2',$string)'"
+        },
+        "Horde_Util": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Horde_Util(ANY)>",
+            "cpg_id": 232649,
+            "code": "Horde_Util::getTempFile('Horde_Text_Diff')"
+        },
+        "__": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY __(ANY)>",
+            "cpg_id": 49165,
+            "code": "__(\"Click on the bar to scroll to top of page\")"
+        },
+        "mysqli_fetch_array": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysqli_fetch_array(ANY,ANY)>",
+            "cpg_id": 122966,
+            "code": "mysqli_fetch_array($result,MYSQLI_ASSOC)"
+        },
+        "strftime": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY strftime(ANY,ANY,ANY)>",
+            "cpg_id": 82245,
+            "code": "strftime($string)"
+        },
+        "pg_escape_string": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY pg_escape_string(ANY)>",
+            "cpg_id": 298191,
+            "code": "pg_escape_string($string)"
+        },
+        "create_function": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY create_function(ANY,ANY)>",
+            "cpg_id": 318039,
+            "code": "create_function('$matchesreturn unichr($matches[1]);')'"
+        },
+        "array_fill": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_fill(ANY,ANY,ANY)>",
+            "cpg_id": 322426,
+            "code": "array_fill(0,8 + $length - $rcount,0)"
+        },
+        "_pgettext": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY _pgettext(ANY,ANY)>",
+            "cpg_id": 80428,
+            "code": "_pgettext('Last pageEnd')'"
+        },
+        "imagecreatetruecolor": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagecreatetruecolor(ANY,ANY)>",
+            "cpg_id": 409694,
+            "code": "imagecreatetruecolor($neww,$newh)"
+        },
+        "imagecolorsforindex": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagecolorsforindex(ANY,ANY)>",
+            "cpg_id": 410583,
+            "code": "imagecolorsforindex($image,$tid)"
+        },
+        "imagecolortransparent": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagecolortransparent(ANY,ANY,ANY)>",
+            "cpg_id": 410555,
+            "code": "imagecolortransparent($image)"
+        },
+        "imagecolorallocate": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagecolorallocate(ANY,ANY,ANY,ANY)>",
+            "cpg_id": 410588,
+            "code": "imagecolorallocate($new_image,$tcol['red'],$tcol['green'],$tcol['blue'])"
+        },
+        "tempnam": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY tempnam(ANY,ANY)>",
+            "cpg_id": 410494,
+            "code": "tempnam(K_PATH_CACHEjpg_')'"
+        },
+        "mysqli_fetch_fields": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysqli_fetch_fields(ANY)>",
+            "cpg_id": 123494,
+            "code": "mysqli_fetch_fields($result)"
+        },
+        "_ngettext": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY _ngettext(ANY,ANY,ANY)>",
+            "cpg_id": 615625,
+            "code": "_ngettext('%d second%d seconds',$rate)'"
+        },
+        "recode_string": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY recode_string(ANY,ANY)>",
+            "cpg_id": 89270,
+            "code": "recode_string($src_charset . '..' . $dest_charset,$what)"
+        },
+        "htmlspecialchars_decode": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY htmlspecialchars_decode(ANY)>",
+            "cpg_id": 478040,
+            "code": "htmlspecialchars_decode(urldecode($tag['attribute']['src']))"
+        },
+        "mysqli_get_client_info": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysqli_get_client_info()>",
+            "cpg_id": 123136,
+            "code": "mysqli_get_client_info()"
+        },
+        "mysql_get_client_info": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysql_get_client_info()>",
+            "cpg_id": 122240,
+            "code": "mysql_get_client_info()"
+        },
+        "drizzle_version": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY drizzle_version()>",
+            "cpg_id": 117870,
+            "code": "drizzle_version()"
+        },
+        "mysqli_store_result": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysqli_store_result(ANY)>",
+            "cpg_id": 123075,
+            "code": "mysqli_store_result($link)"
+        },
+        "bzcompress": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY bzcompress(ANY)>",
+            "cpg_id": 11755,
+            "code": "bzcompress($dump_buffer)"
+        },
+        "mb_convert_kana": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mb_convert_kana(ANY,ANY,ANY)>",
+            "cpg_id": 151235,
+            "code": "mb_convert_kana($strKV',$nw)'"
+        },
+        "mysql_field_name": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysql_field_name(ANY,ANY)>",
+            "cpg_id": 122473,
+            "code": "mysql_field_name($result,$i)"
+        },
+        "mysqli_num_fields": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysqli_num_fields(ANY)>",
+            "cpg_id": 123725,
+            "code": "mysqli_num_fields($result)"
+        },
+        "PMA_message": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY PMA_message(ANY)>",
+            "cpg_id": 231708,
+            "code": "PMA_message::error($message)"
+        },
+        "mysql_num_rows": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysql_num_rows(ANY)>",
+            "cpg_id": 122325,
+            "code": "mysql_num_rows($result)"
+        },
+        "libiconv": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY libiconv(ANY,ANY,ANY)>",
+            "cpg_id": 111774,
+            "code": "libiconv($encodingutf-8',$message)'"
+        },
+        "mysqli_error": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysqli_error(ANY)>",
+            "cpg_id": 123181,
+            "code": "mysqli_error($link)"
+        },
+        "_gettext": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY _gettext(ANY)>",
+            "cpg_id": 21453,
+            "code": "_gettext(Advisor::escapePercent($str))"
+        },
+        "gzuncompress": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY gzuncompress(ANY)>",
+            "cpg_id": 605651,
+            "code": "gzuncompress($bug_decoded)"
+        },
+        "mysql_fetch_assoc": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysql_fetch_assoc(ANY)>",
+            "cpg_id": 112989,
+            "code": "mysql_fetch_assoc($result)"
+        },
+        "mysql_fetch_row": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysql_fetch_row(ANY)>",
+            "cpg_id": 112997,
+            "code": "mysql_fetch_row($result)"
+        },
+        "mysql_fetch_array": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mysql_fetch_array(ANY)>",
+            "cpg_id": 112981,
+            "code": "mysql_fetch_array($result)"
+        },
+        "read_exif_data": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY read_exif_data(ANY)>",
+            "cpg_id": 744887,
+            "code": "read_exif_data($filename)"
+        },
+        "func_num_args": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY func_num_args()>",
+            "cpg_id": 44838,
+            "code": "func_num_args()"
+        },
+        "ob_get_level": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY ob_get_level()>",
+            "cpg_id": 243202,
+            "code": "ob_get_level()"
+        },
+        "Format": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Format(ANY,ANY,ANY)>",
+            "cpg_id": 687921,
+            "code": "Format::htmlchars($errors && $_POST ? $_POST : $info)"
+        },
+        "_S": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY _S(ANY)>",
+            "cpg_id": 33316,
+            "code": "_S('%s logged in [%s], via %s')"
+        },
+        "mb_convert_case": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mb_convert_case(ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 467123,
+            "code": "mb_convert_case($e,MB_CASE_TITLEUTF-8')'"
+        },
+        "preg_match": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY preg_match(string,string,array,string,string,string,string,array,int)>",
+            "cpg_id": 467804,
+            "code": "preg_match('/([' . $this->pregCJKchars . '])/u',$e)"
+        },
+        "sqrt": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY sqrt(ANY)>",
+            "cpg_id": 512431,
+            "code": "sqrt($val)"
+        },
+        "INTVAL": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY INTVAL(ANY)>",
+            "cpg_id": 457984,
+            "code": "INTVAL($R)"
+        },
+        "mb_substr_count": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY mb_substr_count(ANY,ANY,ANY)>",
+            "cpg_id": 417556,
+            "code": "mb_substr_count($chunk ',$this->mb_enc)'"
+        },
+        "rad2deg": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY rad2deg(ANY)>",
+            "cpg_id": 597253,
+            "code": "rad2deg($angle)"
+        },
+        "tan": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY tan(ANY)>",
+            "cpg_id": 589056,
+            "code": "tan(deg2rad($angle_y))"
+        },
+        "deg2rad": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY deg2rad(ANY)>",
+            "cpg_id": 589057,
+            "code": "deg2rad($angle_y)"
+        },
+        "substr_count": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY substr_count(ANY,ANY)>",
+            "cpg_id": 413614,
+            "code": "substr_count($tmp ')'"
+        },
+        "cos": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY cos(ANY)>",
+            "cpg_id": 588918,
+            "code": "cos(deg2rad($angle))"
+        },
+        "sin": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY sin(ANY)>",
+            "cpg_id": 588925,
+            "code": "sin(deg2rad($angle))"
+        },
+        "CEIL": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY CEIL(ANY)>",
+            "cpg_id": 472297,
+            "code": "CEIL($actual_h / $this->lineheight)"
+        },
+        "JsonDataEncoder": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY JsonDataEncoder(ANY)>",
+            "cpg_id": 722026,
+            "code": "JsonDataEncoder::encode($urls)"
+        },
+        "Filter": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Filter()>",
+            "cpg_id": 688836,
+            "code": "Filter::getTargets()"
+        },
+        "TicketModel": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY TicketModel()>",
+            "cpg_id": 732905,
+            "code": "TicketModel::objects()"
+        },
+        "Team": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Team()>",
+            "cpg_id": 710097,
+            "code": "Team::objects()"
+        },
+        "Task": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Task()>",
+            "cpg_id": 707571,
+            "code": "Task::objects()"
+        },
+        "SLA": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY SLA()>",
+            "cpg_id": 703364,
+            "code": "SLA::objects()"
+        },
+        "Role": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Role()>",
+            "cpg_id": 696762,
+            "code": "Role::objects()"
+        },
+        "Topic": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Topic()>",
+            "cpg_id": 691609,
+            "code": "Topic::objects()"
+        },
+        "FAQ": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY FAQ()>",
+            "cpg_id": 685793,
+            "code": "FAQ::objects()"
+        },
+        "Email": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Email()>",
+            "cpg_id": 685303,
+            "code": "Email::objects()"
+        },
+        "DynamicList": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY DynamicList()>",
+            "cpg_id": 683915,
+            "code": "DynamicList::objects()"
+        },
+        "_N": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY _N(ANY,ANY,ANY)>",
+            "cpg_id": 689453,
+            "code": "_N('selected filterselected filters',2)'"
+        },
+        "shmop_size": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY shmop_size(ANY)>",
+            "cpg_id": 647912,
+            "code": "shmop_size($this->_cache_id)"
+        },
+        "Mail_RFC822": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Mail_RFC822(ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 618894,
+            "code": "Mail_RFC822::parseAddressList($recipientslocalhost',false)'"
+        },
+        "_P": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY _P(ANY,ANY)>",
+            "cpg_id": 231267,
+            "code": "_P('ticket-statusOpen')'"
+        },
+        "Dept": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Dept()>",
+            "cpg_id": 231399,
+            "code": "Dept::getDefaultDeptName()"
+        },
+        "Sequence": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Sequence()>",
+            "cpg_id": 690769,
+            "code": "Sequence::objects()"
+        },
+        "Misc": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Misc(ANY)>",
+            "cpg_id": 723728,
+            "code": "Misc::gmtime()"
+        },
+        "Locale": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Locale(ANY,ANY)>",
+            "cpg_id": 100245,
+            "code": "Locale::getDisplayName($info['code'],$lang)"
+        },
+        "Module": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Module(ANY)>",
+            "cpg_id": 744605,
+            "code": "Module::getInstance($action)"
+        },
+        "get_called_class": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY get_called_class()>",
+            "cpg_id": 126082,
+            "code": "get_called_class()"
+        },
+        "error_get_last": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY error_get_last()>",
+            "cpg_id": 433124,
+            "code": "error_get_last()"
+        },
+        "function_exists": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY function_exists(ANY)>",
+            "cpg_id": 433118,
+            "code": "function_exists(\"error_get_last\")"
+        },
+        "RAND": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY RAND(ANY,ANY)>",
+            "cpg_id": 448054,
+            "code": "RAND(1,10000)"
+        },
+        "imagecreatefromstring": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagecreatefromstring(ANY)>",
+            "cpg_id": 446970,
+            "code": "imagecreatefromstring($data)"
+        },
+        "imagecreate": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagecreate(ANY,ANY)>",
+            "cpg_id": 447111,
+            "code": "imagecreate($w,$h)"
+        },
+        "imagesx": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagesx(ANY)>",
+            "cpg_id": 446988,
+            "code": "imagesx($im)"
+        },
+        "imagesy": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imagesy(ANY)>",
+            "cpg_id": 446992,
+            "code": "imagesy($im)"
+        },
+        "array_sum": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY array_sum(ANY)>",
+            "cpg_id": 599474,
+            "code": "array_sum($changes)"
+        },
+        "is_callable": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY is_callable(ANY,ANY,ANY)>",
+            "cpg_id": 175622,
+            "code": "is_callable($desc)"
+        },
+        "Auth_SASL": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Auth_SASL(ANY)>",
+            "cpg_id": 670364,
+            "code": "Auth_SASL::factory(\"digest-md5\")"
+        },
+        "imap_fetchbody": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imap_fetchbody(ANY,ANY,ANY)>",
+            "cpg_id": 112702,
+            "code": "imap_fetchbody($this->mbox,$mid,$partNumber)"
+        },
+        "imap_binary": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imap_binary(ANY)>",
+            "cpg_id": 111802,
+            "code": "imap_binary($text)"
+        },
+        "imap_qprint": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imap_qprint(ANY)>",
+            "cpg_id": 111917,
+            "code": "imap_qprint($text)"
+        },
+        "imap_8bit": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imap_8bit(ANY)>",
+            "cpg_id": 111795,
+            "code": "imap_8bit($text)"
+        },
+        "imap_base64": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY imap_base64(ANY)>",
+            "cpg_id": 111907,
+            "code": "imap_base64($text)"
+        },
+        "strcspn": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY strcspn(ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 246009,
+            "code": "strcspn($e ')'"
+        },
+        "Deployment": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY Deployment(ANY)>",
+            "cpg_id": 214504,
+            "code": "self::realpath($this->destination)"
+        },
+        "file_exists": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY file_exists(ANY)>",
+            "cpg_id": 380327,
+            "code": "file_exists($path . $tempfilename)"
+        },
+        "format": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY format(ANY)>",
+            "cpg_id": 710951,
+            "code": "format::htmlchars(__($info['desc']))"
+        },
+        "fgetcsv": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY fgetcsv(ANY,ANY,ANY)>",
+            "cpg_id": 222505,
+            "code": "fgetcsv($this->stream,1000)'"
+        },
+        "scandir": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY scandir(ANY)>",
+            "cpg_id": 222805,
+            "code": "scandir($dir)"
+        },
+        "AttachmentFile": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY AttachmentFile(ANY,ANY,ANY)>",
+            "cpg_id": 92442,
+            "code": "AttachmentFile::format($_FILES['upload'],!is_numeric($this->get('id')))"
+        },
+        "spl_object_hash": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY spl_object_hash(ANY)>",
+            "cpg_id": 129522,
+            "code": "spl_object_hash($this)"
+        },
+        "db_fetch_row_prepared": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY db_fetch_row_prepared(ANY,ANY,ANY,ANY,ANY)>",
+            "cpg_id": 6930,
+            "code": "db_fetch_row_prepared('SELECT value FROM settings WHERE name = ?',,false)"
+        },
+        "api_plugin_hook_function": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY api_plugin_hook_function(ANY,ANY,ANY)>",
+            "cpg_id": 30674,
+            "code": "api_plugin_hook_function('rrd_graph_graph_options',)"
+        },
+        "substitute_snmp_query_data": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY substitute_snmp_query_data(ANY,ANY,ANY,ANY)>",
+            "cpg_id": 31659,
+            "code": "substitute_snmp_query_data($txt_graph_item,$graph['host_id'],$graph['snmp_query_id'],$graph['snmp_index'])"
+        },
+        "substitute_host_data": {
+            "from": null,
+            "to": null,
+            "type": "ANY",
+            "signature": "<ANY substitute_host_data(ANY,ANY,ANY,ANY)>",
+            "cpg_id": 31635,
+            "code": "substitute_host_data($txt_graph_item|'|',$host_id)'"
+        }
+    }
+}
