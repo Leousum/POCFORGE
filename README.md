@@ -87,7 +87,3 @@ The script automatically processes all JSON files in the `INPUT_ROOT` directory.
 - CVE-2024-52702
 
 ---
-
-## 📞 Contact
-
-For questions and support, please contact: **2427114614@qq.com**
