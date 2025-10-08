@@ -3,7 +3,7 @@
 ## 🎯 Overview
 
 **PoCForge** is a proof-of-concept (PoC) generation tool that combines **Large Language Models (LLMs)** with **on-demand path-sensitive taint analysis** to automatically generate exploits for known vulnerabilities. 
-
+![workflow](/images/workflow.png)
 ---
 
 ## ⚡ How It Works
