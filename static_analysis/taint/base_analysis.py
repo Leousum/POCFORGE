@@ -21,11 +21,10 @@ from static_analysis.taint.functions import process_func
 from static_analysis.taint.payload_manager import PayloadManager
 from static_analysis.taint.code_manager import CodeManager
 from static_analysis.taint.source_sink_handler import SourceSinkHandler
-from ...joern_manager.cpg_field import NodeType,NodeField,NodeConstraint,NodeMethod,NodeLabel,NodeOperator
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class BaseAnalyzer():
-    def __init__(self, config_file, joern_server: JoernServer, page_manager: PageManager, model_manager: ModelManager, log_manager: LogManager, s2_handler = None) -> None:
-        self.config_file = config_file
+    def __init__(self, joern_server: JoernServer, page_manager: PageManager, model_manager: ModelManager, log_manager: LogManager, s2_handler = None) -> None:
         self.joern_server = joern_server
         self.page_manager = page_manager
         self.model_manager = model_manager
@@ -986,8 +985,6 @@ class BaseAnalyzer():
                             request_method_pfg_node.value = "POST"
                         if self.need_add(request_method_pfg_node):
                             PFG.add_node(node = request_method_pfg_node, stmt = request_method_stmt)
-            if vuln_type in self.config_file["default_payload"].keys():
-                taint_pfg_node.value = self.config_file["default_payload"][vuln_type]
             taint_pfg_node.is_taint = True
             if self.need_add(taint_pfg_node):
                 PFG.add_node(node = taint_pfg_node, stmt = taint_stmt)

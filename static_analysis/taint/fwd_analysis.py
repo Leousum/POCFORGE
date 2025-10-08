@@ -4,14 +4,16 @@ import json
 import copy
 import shutil
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+import config
 from pfg.pointer_flow_graph import PointerFlowGraph
 from static_analysis.taint.base_analysis import BaseAnalyzer
 
 class ForwardAnalyzer(BaseAnalyzer):
-    def __init__(self, config_file, joern_server, page_manager, model_manager, log_manager, s2_handler = None):
-        super().__init__(config_file, joern_server, page_manager, model_manager, log_manager, s2_handler)
+    def __init__(self, joern_server, page_manager, model_manager, log_manager, s2_handler = None):
+        super().__init__(joern_server, page_manager, model_manager, log_manager, s2_handler)
         # self.vuln_feature_path = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")), "vuln_feature", repo_path.strip("/").split("/")[-1])
-        self.summary_root = os.path.join(config_file["summary_root"], joern_server.repo_path.strip("/").split("/")[-1])
+        self.summary_root = os.path.join(config.SUMMARY_ROOT, joern_server.repo_path.strip("/").split("/")[-1])
         self.file_path = os.path.join(self.summary_root, "files")
         self.func_path = os.path.join(self.summary_root, "funcs")
         self.segment_path = os.path.join(self.summary_root, "segments")
@@ -448,7 +450,7 @@ class ForwardAnalyzer(BaseAnalyzer):
                                     # 分析未记录的可访问函数
                                     method_cpg_id, method_successors = self.joern_server.find_call_edge_successors(real_full_name)
                                     if len(method_successors) >= 1:
-                                        func_taint_manager = ForwardAnalyzer(self.config_file, self.joern_server, self.page_manager, self.model_manager, self.log_manager, self.s2_handler)
+                                        func_taint_manager = ForwardAnalyzer(self.joern_server, self.page_manager, self.model_manager, self.log_manager, self.s2_handler)
                                         func_taint_manager.forward_analysis(method_successors[0], stmt, True, node_id) # 函数默认进行完整分析
                                     if len(method_successors) > 1:
                                         self.log_manager.log_info(f'Find more than one successors!', False, 3)

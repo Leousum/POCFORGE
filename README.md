@@ -74,7 +74,7 @@ Run the main script to generate PoCs:
 python3 autopoc.py
 ```
 
-The script automatically processes all JSON files in the `INPUT_ROOT` directory. Modify `autopoc.py` to target specific vulnerabilities using the `generate_poc` method.
+The script automatically processes all JSON files in the `INPUT_ROOT` directory. Modify `autopoc.py` to target specific vulnerabilities using the `generate_poc` method ( **Output Result** : The return value of this method is the final generated PoC).
 
 ---
 
@@ -87,3 +87,7 @@ The script automatically processes all JSON files in the `INPUT_ROOT` directory.
 - CVE-2024-52702
 
 ---
+
+## 📞 Contact
+
+For questions and support, please open an issue.

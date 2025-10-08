@@ -500,16 +500,8 @@ class SourceSinkHandler():
 
 if __name__ == "__main__":
     log_manager = LogManager(source_id="test", vuln_type = "test")
-    config_path = os.path.join(os.path.abspath(os.path.join(os.path.join(os.path.dirname(__file__), ".."), "..")), "config.json")
-    config_file = dict()
-    with open(config_path, "r", encoding = "utf-8") as f:
-        config_file = json.load(f)
-    joern_server = JoernServer(
-        config_file = config_file,
-        repo_path = "/home/devdata/repos/cacti_cacti",
-        log_manager = log_manager
-    )
-    model_manager = ModelManager(config_file, log_manager)
+    joern_server = JoernServer("localhost:8989", repo_path = "/home/devdata/repos/cacti_cacti", log_manager = log_manager)
+    model_manager = ModelManager(log_manager)
     s2_handler = SourceSinkHandler(joern_server, model_manager, log_manager)
     #s2_handler.get_source_nodes()
     s2_handler.get_sink_nodes()

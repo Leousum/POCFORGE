@@ -5,14 +5,15 @@ import json
 import requests
 import subprocess
 from git import Repo
-# from log_manager import LogManager
+
+import config
+from log_manager import LogManager
 
 class RepositoryHandler():
-    def __init__(self, config, log_manager) -> None:
-        self.config_file = config
+    def __init__(self, log_manager: LogManager) -> None:
         self.log_manager = log_manager
-        self.repo_root = self.config_file["repo_root"]
-        self.github_token = self.config_file["github_token"]
+        self.repo_root = config.REPO_ROOT
+        self.github_token = config.GITHUB_TOKEN
         self.info_root = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")), "data", "repo_info")
         if not os.path.exists(self.info_root):
             os.makedirs(self.info_root, mode = 777)
@@ -202,46 +203,3 @@ class RepositoryHandler():
             except:
                 pass
         return language
-
-# if __name__ == "__main__":
-#     logmanager = LogManager(source_id="test", vuln_type = "test")
-#     config_file = None
-#     with open("/root/working/working/AutoPoC/config.json", "r", encoding = "utf-8") as f:
-#         config_file = json.load(f)
-#     test = RepositoryHandler(config_file, logmanager)
-    # git_links = [
-    #     "https://github.com/Piwigo/Piwigo",
-    #     "https://github.com/drupal/drupal",
-    #     "https://github.com/typo3/typo3",
-    #     "https://github.com/humhub/humhub",
-    #     "https://github.com/phpmyadmin/phpmyadmin",
-    #     "https://github.com/opencart/opencart",
-    #     "https://github.com/salesagility/suitecrm",
-    #     "https://github.com/mybb/mybb",
-    #     "https://github.com/moodle/moodle",
-    #     "https://github.com/projectsend/projectsend",
-    #     "https://github.com/prasathmani/tinyfilemanager",
-    #     "https://github.com/mantisbt/mantisbt",
-    #     "https://github.com/openemr/openemr",
-    #     "https://github.com/phpsysinfo/phpsysinfo",
-    #     "https://github.com/osticket/osticket"
-    # ]
-    # for git_link in git_links:
-    #     print(f"正在收集{git_link}的信息!")
-    #     test._collect_repo_info(
-    #         git_link = git_link,
-    #         info_root = test.info_root,
-    #         github_token = config_file["github_token"]
-    #     )
-    # Update information for all repos
-    # for parent, dirnames, filenames in os.walk(test.info_root):
-    #     for filename in filenames:
-    #         path = os.path.join(parent, filename)
-    #         data = dict()
-    #         with open(path, "r", encoding = "utf-8") as f:
-    #             data = json.load(f)
-    #         test._collect_repo_info(
-    #             git_link = data["git_link"],
-    #             info_root = test.info_root,
-    #             github_token = config_file["github_token"]
-    #         )

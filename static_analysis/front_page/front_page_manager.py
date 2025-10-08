@@ -5,8 +5,7 @@ import json
 from bs4 import BeautifulSoup
 
 class PageManager():
-    def __init__(self, config_file, log_manager) -> None:
-        self.config_file = config_file
+    def __init__(self, log_manager) -> None:
         self.log_manager = log_manager
 
 # ======================================== Get Method and Form Start ========================================
@@ -110,10 +109,10 @@ class PageManager():
                     vuln_info["data"][k] = form_field_map[k]
         if vuln_info["vuln_parameters"] == []:
             vuln_info["vuln_parameters"] = origin_parameters
-        for parameter in vuln_info["vuln_parameters"]:
-            if parameter in vuln_info["data"].keys():
-                if vuln_info["vuln_type"] in self.config_file["default_payload"].keys():
-                    vuln_info["data"][parameter] = self.config_file["default_payload"][vuln_info["vuln_type"]]
+        # for parameter in vuln_info["vuln_parameters"]:
+        #     if parameter in vuln_info["data"].keys():
+        #         if vuln_info["vuln_type"] in self.config_file["default_payload"].keys():
+        #             vuln_info["data"][parameter] = self.config_file["default_payload"][vuln_info["vuln_type"]]
         # 记录日志消息
         if vuln_info["method"]:
             self.log_manager.log_info(f'Find Request Method: {vuln_info["method"]}', False, 2)

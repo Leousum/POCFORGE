@@ -18,9 +18,9 @@ JOERN_MAX_QUERY_LIMIT = 2200 # Joern查询次数上限,用于自动重启Joern�
 JOERN_QUERY_ROOT = os.path.join(DATA_ROOT, "query") # CPG查询缓存目录
 
 # 大语言模型配置信息
-MODEL = "<your model>"  # E.g., gpt-4-1106-preview
-BASE_URL = "<your base url>"  # E.g., https://api.zhiyungpt.com/v1
-API_KEY = "<your api key>"  # API key for your chosen model
+MODEL = "<your model>" # E.g., gpt-4-1106-preview
+BASE_URL = "<your base url>" # E.g., https://api.zhiyungpt.com/v1
+API_KEY = "<your api key>" # API key for your chosen model
 
 # 其它配置信息
 GITHUB_TOKEN = "<your github token>"  # Generate at: https://github.com/settings/personal-access-tokens

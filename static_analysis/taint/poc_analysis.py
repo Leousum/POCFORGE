@@ -4,11 +4,11 @@ import sys
 from base_analysis import BaseAnalyzer
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from pfg.pointer_flow_graph import PointerFlowGraph
-from ...joern_manager.cpg_field import NodeType,NodeField,NodeConstraint,NodeMethod,NodeLabel,NodeOperator
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class PoCAnalyzer(BaseAnalyzer):
-    def __init__(self, config_file, joern_server, page_manager, model_manager, log_manager, s2_handler = None):
-        super().__init__(config_file, joern_server, page_manager, model_manager, log_manager, s2_handler)
+    def __init__(self, joern_server, page_manager, model_manager, log_manager, s2_handler = None):
+        super().__init__(joern_server, page_manager, model_manager, log_manager, s2_handler)
 
     def record_taint_info(self, processed_paths: list, PFG: PointerFlowGraph, start_cpg_node: dict, accessed_functions: list, interest_codes: list, db_operation: dict, taint_infos: list):
         # 记录污点信息

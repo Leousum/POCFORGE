@@ -6,6 +6,7 @@
 '''
 import os
 import json
+import config
 import shutil
 import traceback
 import subprocess
@@ -18,9 +19,7 @@ from joern_manager.joern import JoernServer
 
 class PocGenerator():
     def __init__(self) -> None:
-        self.poc_root = "/home/leousum/AutoPoC/poc"
-        self.config_path = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), ".")), "config.json")
-        self.config_file = self._config_load(self.config_path)
+        self.input_root = config.INPUT_ROOT
     
     def _config_load(self, config_file_path: str):
         with open(config_file_path, 'r', encoding='utf-8') as config_file:
@@ -32,13 +31,13 @@ class PocGenerator():
             shutil.rmtree(repo_path)
     
     def _get_manual_poc(self, source_id):
-        poc_path = os.path.join(self.poc_root, source_id + ".json")
+        poc_path = os.path.join(self.input_root, source_id + ".json")
         if os.path.exists(poc_path):
-            poc_data = dict()
+            vuln_data = dict()
             with open(poc_path, "r", encoding = "utf-8") as f:
-                poc_data = json.load(f)
-            if "manual_poc" in poc_data.keys():
-                return poc_data["manual_poc"]
+                vuln_data = json.load(f)
+            if "manual_poc" in vuln_data.keys():
+                return vuln_data["manual_poc"]
         return []
     
     def make_url(self, manual_poc):
@@ -69,10 +68,10 @@ class PocGenerator():
         '''
         log_manager = LogManager(source_id, vuln_type)
         # Extract information from description
-        model_manager = ModelManager(self.config_file, log_manager)
+        model_manager = ModelManager(log_manager)
         gpt_infos = model_manager.info_extract(vuln_type, description)
         # Download repository and switch tag
-        repo_handler = RepositoryHandler(self.config_file, log_manager)
+        repo_handler = RepositoryHandler(log_manager)
         repo_path, checkout_tag, checkout_success = repo_handler.checkout_tag(git_link, affected_version)
         info_flag = self.hava_info(gpt_infos)
         if not checkout_success or not info_flag:
@@ -81,8 +80,8 @@ class PocGenerator():
         automated_poc = list()
         if repo_path:
             log_manager.log_result("repo_path", repo_path)
-            joern_server = JoernServer(self.config_file, repo_path, log_manager, checkout_tag)
-            infer_manager = InferManager(self.config_file, model_manager, joern_server, log_manager)
+            joern_server = JoernServer(config.JOERN_SERVER_POINT, repo_path, log_manager) # checkout_tag
+            infer_manager = InferManager(model_manager, joern_server, log_manager)
             automated_poc = infer_manager.code_analysis(vuln_type, repo_path, gpt_infos)
         else:
             log_manager.log_result("repo_path", None)
@@ -94,20 +93,20 @@ class PocGenerator():
 
 if __name__ == "__main__":
     test = PocGenerator()
-    for parent, dirnames, filenames in os.walk(test.poc_root):
+    for parent, dirnames, filenames in os.walk(test.input_root):
         for filename in filenames:
-            poc_path = os.path.join(parent, filename)
-            poc_data = dict()
-            with open(poc_path, "r", encoding = "utf-8") as f:
-                poc_data = json.load(f)
+            vuln_path = os.path.join(parent, filename) # The path of the JSON file to be analyzed for vulnerability
+            vuln_data = dict()
+            with open(vuln_path, "r", encoding = "utf-8") as f:
+                vuln_data = json.load(f)
             try:
-                automated_poc = test.generate_poc(poc_data["source_id"], poc_data["vuln_type"], poc_data["description"], poc_data["git_links"][0], poc_data["affected_version"])
+                automated_poc = test.generate_poc(vuln_data["source_id"], vuln_data["vuln_type"], vuln_data["description"], vuln_data["git_links"][0], vuln_data["affected_version"])
             except Exception as e:
-                print(f"处理{poc_data['source_id']}时发生了错误!")
+                print(f"处理{vuln_data['source_id']}时发生了错误!")
                 command = ["fuser", "-k", "8989/tcp"]
                 subprocess.Popen(command, stdout = subprocess.DEVNULL, stderr = subprocess.DEVNULL, start_new_session = True)
-                logmanager = LogManager(poc_data["source_id"], poc_data["vuln_type"])
-                manual_poc = test._get_manual_poc(poc_data["source_id"])
+                logmanager = LogManager(vuln_data["source_id"], vuln_data["vuln_type"])
+                manual_poc = test._get_manual_poc(vuln_data["source_id"])
                 logmanager.log_result("manual_poc", manual_poc)
                 logmanager.log_result(f"verificate_poc", {"answer": "", "failure_reason": "", "new_parameters": 0, "parameter_error": False})
                 logmanager.log_result("error", str(e) + ":" + str(traceback.format_exc()))

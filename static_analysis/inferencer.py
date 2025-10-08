@@ -12,14 +12,13 @@ from front_page.front_page_manager import PageManager
 from taint.source_sink_handler import SourceSinkHandler
 
 class InferManager():
-    def __init__(self, config_file, model_manager: ModelManager, joern_server: JoernServer, log_manager: LogManager) -> None:
-        self.config_file = config_file
+    def __init__(self, model_manager: ModelManager, joern_server: JoernServer, log_manager: LogManager) -> None:
         self.model_manager = model_manager
         self.joern_server = joern_server
         self.log_manager = log_manager
-        self.page_manager = PageManager(config_file, log_manager)
+        self.page_manager = PageManager(log_manager)
         self.source_sink_handler = SourceSinkHandler(joern_server, model_manager, log_manager)
-        self.taint_manager = PoCAnalyzer(config_file, joern_server, self.page_manager, model_manager, log_manager)
+        self.taint_manager = PoCAnalyzer(joern_server, self.page_manager, model_manager, log_manager)
     
     def _find_real_file_name(self, repo_path, target_file_name):
         # 漏洞描述中提取到的url不一定对应实际的文件名称,例如CVE-2022-24223: "/Atom.CMS/admin/login.php"(可能含有项目名称)

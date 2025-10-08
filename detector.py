@@ -4,36 +4,32 @@ import time
 import psutil
 import traceback
 
-from LLM.model_manager import ModelManager
+import config
+from reporter import Reporter
 from utils.log_manager import LogManager
+from LLM.model_manager import ModelManager
 from joern_manager.joern import JoernServer
 from static_analysis.front_page.front_page_manager import PageManager
 from static_analysis.taint.fwd_analysis import ForwardAnalyzer
 from static_analysis.taint.bwd_analysis import BackwardAnalyzer
 from static_analysis.taint.source_sink_handler import SourceSinkHandler
-from reporter import Reporter
-import config
 
 class VulnDetector():
     def __init__(self, repo_path: str) -> None:
         self.repo_path = repo_path
-        self.config_path = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), ".")), "config.json")
-        self.config_file = dict()
-        with open(self.config_path, "r", encoding = "utf-8") as f:
-            self.config_file = json.load(f)
         self.processed_ids = list() # 处理过的CPG ID列表
         self.processed_files = list() # 处理过的文件相对路径列表
         self.redirect_funcs = ["require", "include", "include_once", "require_once"] # TODO:改为从配置文件中读取
         self.log_manager = LogManager(repo_path.strip("/").split("/")[-1], "all")
         self.init_memory = psutil.virtual_memory().used
-        self.joern_server = JoernServer(self.config_file, repo_path, self.log_manager)
-        self.page_manager = PageManager(self.config_file, self.log_manager)
-        self.model_manager = ModelManager(self.config_file, self.log_manager)
+        self.joern_server = JoernServer(config.JOERN_SERVER_POINT, repo_path, self.log_manager)
+        self.page_manager = PageManager(self.log_manager)
+        self.model_manager = ModelManager(self.log_manager)
         self.s2_handler = SourceSinkHandler(self.joern_server, self.model_manager, self.log_manager)
-        self.forward_analyzer = ForwardAnalyzer(self.config_file, self.joern_server, self.page_manager, self.model_manager, self.log_manager, self.s2_handler)
-        self.backward_analyzer = BackwardAnalyzer(self.config_file, self.joern_server, self.page_manager, self.model_manager, self.log_manager, self.s2_handler)
+        self.forward_analyzer = ForwardAnalyzer(self.joern_server, self.page_manager, self.model_manager, self.log_manager, self.s2_handler)
+        self.backward_analyzer = BackwardAnalyzer(self.joern_server, self.page_manager, self.model_manager, self.log_manager, self.s2_handler)
         self.entry_num = 0
-        self.reporter = Reporter(self.log_manager, os.path.join(self.config_file["report_root"], repo_path.strip("/").split("/")[-1]))
+        self.reporter = Reporter(self.log_manager, os.path.join(config.REPORT_ROOT, repo_path.strip("/").split("/")[-1]))
         self.log_manager.log_info(f"Initial memory usage: {self.init_memory/(1024**3):.6f} GB", False, 1, True)
         self.peak_memory = 0
         self.check_memory()

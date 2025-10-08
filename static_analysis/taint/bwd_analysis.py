@@ -2,8 +2,8 @@ import copy
 from static_analysis.taint.base_analysis import BaseAnalyzer
 
 class BackwardAnalyzer(BaseAnalyzer):
-    def __init__(self, config_file, joern_server, page_manager, model_manager, log_manager, s2_handler = None):
-        super().__init__(config_file, joern_server, page_manager, model_manager, log_manager, s2_handler)
+    def __init__(self, joern_server, page_manager, model_manager, log_manager, s2_handler = None):
+        super().__init__(joern_server, page_manager, model_manager, log_manager, s2_handler)
     
     def in_control(self, cpg_node: dict):
         # 判断当前分析节点是否处于控制结构语句中
