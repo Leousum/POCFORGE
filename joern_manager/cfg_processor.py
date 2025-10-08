@@ -1,7 +1,7 @@
 import copy
 
-from ast_processor import ASTProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel
+from joern_manager.ast_processor import ASTProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel
 
 class CFGProcessor(ASTProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level = 0):

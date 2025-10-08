@@ -1,8 +1,8 @@
 import copy
 from typing import List
 
-from method_argument_processor import MethodArgumentProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.method_argument_processor import MethodArgumentProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class MethodProcessor(MethodArgumentProcessor):
     '''

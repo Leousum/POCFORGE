@@ -1,8 +1,9 @@
 import os
-import copy
 import sys
-from base_analysis import BaseAnalyzer
+import copy
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from static_analysis.taint.base_analysis import BaseAnalyzer
 from pfg.pointer_flow_graph import PointerFlowGraph
 from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 

@@ -4,7 +4,7 @@ import json
 from typing import List
 import networkx as nx
 import matplotlib.pyplot as plt
-from node_status import NodeStatus
+from static_analysis.pfg.node_status import NodeStatus
 # import sys
 # sys.path.append("/home/leousum/AutoPoC/")
 from static_analysis.pfg.pfg_node import PFGNode

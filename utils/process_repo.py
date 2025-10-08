@@ -7,7 +7,7 @@ import subprocess
 from git import Repo
 
 import config
-from log_manager import LogManager
+from utils.log_manager import LogManager
 
 class RepositoryHandler():
     def __init__(self, log_manager: LogManager) -> None:

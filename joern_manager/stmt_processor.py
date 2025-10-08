@@ -1,11 +1,11 @@
 import json
 
-from stmt.stmt_type import StmtType
-from stmt.control_structure import ControlStructure
-from stmt.stmt_data import Obj, ObjField, Variable, Literal, Operation, Temporary
-from stmt.stmts import Assign, CommonCall, ObjCall, Method, MethodReturn
-from dataflow_processor import DataFlowProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.stmt.stmt_type import StmtType
+from joern_manager.stmt.control_structure import ControlStructure
+from joern_manager.stmt.stmt_data import Obj, ObjField, Variable, Literal, Operation, Temporary
+from joern_manager.stmt.stmts import Assign, CommonCall, ObjCall, Method, MethodReturn
+from joern_manager.dataflow_processor import DataFlowProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class StmtProcessor(DataFlowProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level=0):

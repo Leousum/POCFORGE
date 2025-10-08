@@ -1,5 +1,5 @@
-from source_sink_processor import SourceSinkProcessor
-from cpg_field import NodeType, NodeField, NodeMethod
+from joern_manager.source_sink_processor import SourceSinkProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeMethod
 
 class IOServer(SourceSinkProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level=0):

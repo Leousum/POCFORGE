@@ -1,4 +1,4 @@
-from node_status import NodeStatus
+from static_analysis.pfg.node_status import NodeStatus
 
 class PFGNode():
     def __init__(self, code_block_id = None, node_type = None, parent_type = None, parent_identifier = None, own_type = None, identifier = None, value = None, is_class = False) -> None:

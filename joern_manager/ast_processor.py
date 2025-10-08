@@ -1,5 +1,5 @@
-from base_server import BaseServer
-from cpg_field import NodeType, NodeField, NodeMethod, NodeLabel
+from joern_manager.base_server import BaseServer
+from joern_manager.cpg_field import NodeType, NodeField, NodeMethod, NodeLabel
 
 class ASTProcessor(BaseServer):
     def __init__(self, server_point, repo_path, log_manager, indent_level = 0):

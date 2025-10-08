@@ -1,7 +1,7 @@
 from typing import List
 
-from cfg_processor import CFGProcessor
-from cpg_field import NodeType, NodeField
+from joern_manager.cfg_processor import CFGProcessor
+from joern_manager.cpg_field import NodeType, NodeField
 
 class AssignmentProcessor(CFGProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level = 0):

@@ -2,7 +2,7 @@ import copy
 from typing import List
 
 from joern_manager.method_parameter_processor import MethodParameterProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class MethodBaseProcessor(MethodParameterProcessor):
     '''

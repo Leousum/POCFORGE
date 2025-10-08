@@ -3,15 +3,16 @@ from openai import OpenAI
 # import os
 # import sys
 # sys.path.append("/home/leousum/AutoPoC")
-# from utils.log_manager import LogManager
+
+import config
+from utils.log_manager import LogManager
 
 class ModelManager():
-    def __init__(self, config_file, log_manager) -> None:
+    def __init__(self, log_manager: LogManager) -> None:
         self.history = []
-        self.config_file = config_file
-        self.model = self.config_file["model"] # "gpt-3.5-turbo"
-        self.base_url = self.config_file["base_url"]
-        self.api_key = self.config_file["api_key"]
+        self.model = config.MODEL
+        self.base_url = config.BASE_URL
+        self.api_key = config.API_KEY
         self.log_manager = log_manager
         self.client = OpenAI(base_url = self.base_url, api_key = self.api_key)
 

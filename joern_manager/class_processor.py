@@ -1,7 +1,7 @@
 from typing import List
 
-from array_processor import ArrayProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.array_processor import ArrayProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class ClassProcessor(ArrayProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level = 0):

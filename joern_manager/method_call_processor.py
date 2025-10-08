@@ -1,8 +1,8 @@
 import copy
 from typing import List
 
-from method_return_processor import MethodReturnProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.method_return_processor import MethodReturnProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class MethodCallProcessor(MethodReturnProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level = 0):

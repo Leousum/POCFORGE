@@ -13,9 +13,9 @@ sys.path.append(os.path.join(project_root, "joern_manager"))
 
 import config
 from utils.log_manager import LogManager
-from cpgql.client import CPGQLSClient
-from cpgql.queries import import_code_query, import_cpg_query, open_project, delete_project, close_query, exit_joern
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.cpgql.client import CPGQLSClient
+from joern_manager.cpgql.queries import import_code_query, import_cpg_query, open_project, delete_project, close_query, exit_joern
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class BaseServer():
     def __init__(self, server_point: str, repo_path: str, log_manager: LogManager, indent_level: int = 0):

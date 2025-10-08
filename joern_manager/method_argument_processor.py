@@ -1,8 +1,8 @@
 import copy
 from typing import List
 
-from method_call_processor import MethodCallProcessor
-from cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
+from joern_manager.method_call_processor import MethodCallProcessor
+from joern_manager.cpg_field import NodeType, NodeField, NodeConstraint, NodeMethod, NodeLabel, NodeOperator
 
 class MethodArgumentProcessor(MethodCallProcessor):
     def __init__(self, server_point, repo_path, log_manager, indent_level = 0):
